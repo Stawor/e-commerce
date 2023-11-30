@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import React, { useState } from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
@@ -29,17 +29,17 @@ export default function ImageCarousel() {
 							currentSlide * 100
 						}vw]`}
 					>
-						<img
+						<Image
 							src="img1.webp"
 							alt=""
 							className="w-screen h-full object-cover"
 						/>
-						<img
+						<Image
 							src="img2.webp"
 							alt=""
 							className=" w-screen h-full object-cover"
 						/>
-						<img
+						<Image
 							src="img3.webp"
 							alt=""
 							className=" w-screen h-full object-cover"
