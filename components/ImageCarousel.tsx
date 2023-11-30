@@ -32,7 +32,10 @@ export default function ImageCarousel() {
 					onClick={handleClickLeft}
 					className=" absolute z-10 left-2 top-1/2 border border-slate-700 "
 				>
-					<ArrowBackIcon className="w-20 h-20 hover:text-slate-700 text-7xl" />
+					<ArrowBackIcon
+						sx={{ fontSize: 80 }}
+						className=" hover:text-slate-700 "
+					/>
 				</div>
 				<div className="h-screen w-full overflow-hidden">
 					<div className={` w-[300vw] flex h-full transition-all duration-700`}>
@@ -53,7 +56,10 @@ export default function ImageCarousel() {
 				onClick={handleClickRight}
 				className=" absolute top-1/2 right-2 border border-slate-700 "
 			>
-				<ArrowForwardIcon className="w-20 h-20 hover:text-slate-700 text-7xl" />
+				<ArrowForwardIcon
+					sx={{ fontSize: 80 }}
+					className=" hover:text-slate-700 "
+				/>
 			</div>
 		</main>
 	);
