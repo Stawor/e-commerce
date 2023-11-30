@@ -30,7 +30,7 @@ export default function ImageCarousel() {
 			<div className="">
 				<div
 					onClick={handleClickLeft}
-					className=" absolute z-10 left-2 top-1/2 border border-slate-700 "
+					className=" absolute z-10 left-2 top-1/2 border border-slate-700 h-20 w-20"
 				>
 					<ArrowBackIcon className="w-20 h-20 hover:text-slate-700" />
 				</div>
@@ -51,7 +51,7 @@ export default function ImageCarousel() {
 			</div>
 			<div
 				onClick={handleClickRight}
-				className=" absolute top-1/2 right-2 border border-slate-700 "
+				className=" absolute top-1/2 right-2 border border-slate-700 h-20 w-20"
 			>
 				<ArrowForwardIcon className="w-20 h-20 hover:text-slate-700 " />
 			</div>
