@@ -30,9 +30,9 @@ export default function ImageCarousel2() {
 			<div className="">
 				<div
 					onClick={handleClickLeft}
-					className=" absolute z-10 top-1/2 border border-slate-700 "
+					className=" absolute z-10 left-2 top-1/2 border border-slate-700 "
 				>
-					<ArrowBackIcon className=" text-7xl hover:" />
+					<ArrowBackIcon className="w-20 h-20 hover:text-slate-700" />
 				</div>
 				<div className="h-screen w-full overflow-hidden">
 					<div className={` w-[300vw] flex h-full transition-all duration-700`}>
@@ -42,7 +42,7 @@ export default function ImageCarousel2() {
 								src={imageUrl}
 								key={index}
 								alt=""
-								className="w-screen h-full object-cover"
+								className="w-screen h-full object-cover transition-all duration-500"
 								style={{ translate: `${-100 * imageIndex}%` }}
 							/>
 						))}
@@ -51,9 +51,9 @@ export default function ImageCarousel2() {
 			</div>
 			<div
 				onClick={handleClickRight}
-				className=" absolute top-1/2 right-0 border border-slate-700 "
+				className=" absolute top-1/2 right-2 border border-slate-700 "
 			>
-				<ArrowForwardIcon className=" text-7xl" />
+				<ArrowForwardIcon className="w-20 h-20 hover:text-slate-700 " />
 			</div>
 		</main>
 	);
