@@ -14,7 +14,7 @@ export default function ImageCarousel() {
 
 	function handleClickRight() {
 		setImageIndex((index) => {
-			if (index == imageUrls.length - 1) return (index = 0);
+			if (index == imageUrls.length - 1) return 0;
 			return index + 1;
 		});
 	}
@@ -26,8 +26,8 @@ export default function ImageCarousel() {
 	}
 
 	return (
-		<main className="">
-			<div className="">
+		<main className="relative">
+			<div>
 				<div
 					onClick={handleClickLeft}
 					className=" absolute z-10 left-2 top-1/2 border border-slate-700 "
@@ -37,7 +37,7 @@ export default function ImageCarousel() {
 						className=" hover:text-slate-700 "
 					/>
 				</div>
-				<div className="h-screen w-full overflow-hidden">
+				<div className="lg:h-screen h-[50vh] w-full overflow-hidden">
 					<div className={` w-[300vw] flex h-full transition-all duration-700`}>
 						{imageUrls.map((imageUrl, index) => (
 							<Image

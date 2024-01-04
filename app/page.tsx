@@ -1,10 +1,10 @@
-import CategoriesGrid from "@/app/components/CategoriesGrid";
-import FeaturedProducts from "@/app/components/FeaturedProducts";
-import ImageCarousel from "@/app/components/ImageCarousel";
+import CategoriesGrid from "@/components/CategoriesGrid";
+import FeaturedProducts from "@/components/FeaturedProducts";
+import ImageCarousel from "@/components/ImageCarousel";
 
 export default function Home() {
 	return (
-		<main>
+		<main className=" flex flex-col gap-32">
 			<ImageCarousel />
 			<FeaturedProducts />
 			<CategoriesGrid />

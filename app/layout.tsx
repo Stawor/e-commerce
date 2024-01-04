@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import NavBar from "@/app/components/NavBar";
-import Footer from "@/app/components/Footer";
+import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+import { CartProvider } from "@/context/ShoppingCartContext";
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +15,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
+	pageProps: session,
 }: {
 	children: React.ReactNode;
+	pageProps: any;
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<NavBar />
-				{children}
-				<Footer />
+			<body className={`${inter.className} `}>
+				<SessionProvider session={session}>
+					<CartProvider>
+						<NavBar />
+						<div className=" flex flex-col gap-60 justify-between h-screen">
+							{children}
+							<Footer />
+						</div>
+					</CartProvider>
+				</SessionProvider>
 			</body>
 		</html>
 	);

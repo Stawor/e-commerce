@@ -1,12 +1,9 @@
+import { PrismaClient } from "@prisma/client";
 import React from "react";
-import Items from "../api/route1";
-import { auth } from "../auth";
-import SortData from "@/components/SortData";
 import CategoryBar from "@/components/CategoryBar";
+import SortData from "@/components/SortData";
 
-const items = Items();
-
-export default async function Page({
+export default async function MenProducts({
 	searchParams,
 }: {
 	searchParams?: {
@@ -14,7 +11,12 @@ export default async function Page({
 		value?: string;
 	};
 }) {
-	const session = await auth();
+	const prisma = new PrismaClient();
+	const items = await prisma.item.findMany({
+		where: {
+			gen: "f",
+		},
+	});
 
 	return (
 		<main className=" flex mt-12">

@@ -20,5 +20,8 @@ model Item {
   name    String 
   image   String
   image2  String
-  price   String
+  price   Int
+  gen     String
+  color   String
+  quantity Int @default(1)
 }
