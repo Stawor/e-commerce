@@ -11,7 +11,6 @@ const cookies = new Cookies();
 export default function Cart() {
 	const { cart, addToCart, removeFromCart, updateQuantity } = useCart();
 	const [cartItems, setCartItems] = useState([]);
-	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
 		setCartItems(cookies.get("cart"));
