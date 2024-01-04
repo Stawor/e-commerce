@@ -15,8 +15,8 @@ export default async function FeaturedProducts() {
 				className="flex justify-around flex-wrap gap-1
       "
 			>
-				{items.map((item) => (
-					<div className=" lg:w-1/6 w-[40%]">
+				{items.map((item, index) => (
+					<div key={index} className=" lg:w-1/6 w-[40%]">
 						<Card item={item} />
 					</div>
 				))}

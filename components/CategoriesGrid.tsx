@@ -40,7 +40,7 @@ export default function CategoriesGrid() {
 				/>
 				<Link href={"http://localhost:3000/products?query=t-shirt"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-						T'SHIRTS
+						TSHIRTS
 					</h1>
 				</Link>
 			</div>

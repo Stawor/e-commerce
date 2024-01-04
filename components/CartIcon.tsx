@@ -7,7 +7,7 @@ import { Cookies } from "react-cookie";
 
 export default function CartIcon() {
 	const cookies = new Cookies();
-	const { cart, updateQuantity } = useCart();
+	const { cart } = useCart();
 	const [cookie, setCookie] = useState([]);
 
 	useEffect(() => {

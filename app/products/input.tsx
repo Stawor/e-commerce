@@ -1,15 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import {
-	useParams,
-	usePathname,
-	useRouter,
-	useSearchParams,
-} from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function input() {
-	const params = useParams();
-	const [price, setPrice] = useState(null);
 	const searchParams = useSearchParams();
 	const { replace } = useRouter();
 	const [isChecked, setIsChecked] = useState(false);
@@ -31,7 +24,7 @@ export default function input() {
 	function handleSelect(value) {
 		const params = new URLSearchParams(searchParams);
 		params.set("value", value);
-		setPrice(value);
+
 		replace(`${pathname}?${params.toString()}`);
 	}
 	return (
