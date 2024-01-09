@@ -4,18 +4,7 @@ import React, { useEffect } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 
-type CartItem = {
-	color: string;
-	gen: string;
-	id: number;
-	image: string;
-	image2: string;
-	name: string;
-	price: number;
-	quantity: number;
-};
-
-export default function AddToCartButton({ item }: { item: CartItem }) {
+export default function AddToCartButton({ item }) {
 	const { addToCart, message, display, setDisplay } = useCart();
 
 	useEffect(() => {

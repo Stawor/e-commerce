@@ -10,9 +10,9 @@ import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined
 const cookies = new Cookies();
 export default function Cart() {
 	const { cart, removeFromCart } = useCart();
-	const [cartItems, setCartItems] = useState<CartItem[]>([]);
+	const [cartItems, setCartItems] = useState<CartItems[]>([]);
 
-	type CartItem = {
+	type CartItems = {
 		color: string;
 		gen: string;
 		id: number;
@@ -32,20 +32,22 @@ export default function Cart() {
 		event: ChangeEvent<HTMLInputElement>
 	) {
 		const newQuantity = parseInt(event.target.value);
-		const updatedCartItems = cartItems.map((item) =>
+		const updatedCartItems = cartItems.map((item: CartItems) =>
 			item.id === id ? { ...item, quantity: newQuantity } : item
 		);
 
 		setCartItems(updatedCartItems);
 		cookies.set("cart", updatedCartItems, { path: "/" });
 	}
-	console.log(cartItems);
+
 	const handleRemoveFromCart = (id: number) => {
 		// Remove from cart state
 		removeFromCart(id);
 
 		// Remove from cookies
-		const updatedCartItems = cartItems.filter((item) => item.id !== id);
+		const updatedCartItems = cartItems.filter(
+			(item: CartItems) => item.id !== id
+		);
 		setCartItems(updatedCartItems);
 		cookies.set("cart", updatedCartItems, { path: "/" });
 	};
