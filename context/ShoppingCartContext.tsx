@@ -3,9 +3,14 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { Cookies } from "react-cookie";
 
 type CartItem = {
-	quantity: number;
+	color: string;
+	gen: string;
 	id: number;
+	image: string;
+	image2: string;
 	name: string;
+	price: number;
+	quantity: number;
 };
 
 type CartContextType = {
