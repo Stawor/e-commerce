@@ -12,7 +12,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products?query=trausers"}>
+				<Link href={"/products?query=trausers"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						TRAUSERS
 					</h1>
@@ -25,7 +25,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products/men"}>
+				<Link href={"/products/men"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						MEN
 					</h1>
@@ -38,7 +38,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products?query=t-shirt"}>
+				<Link href={"/products?query=t-shirt"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						TSHIRTS
 					</h1>
@@ -52,7 +52,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products/women"}>
+				<Link href={"/products/women"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						WOMEN
 					</h1>
@@ -65,7 +65,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products?query=shirt"}>
+				<Link href={"/products?query=shirt"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						SHIRTS
 					</h1>
@@ -78,7 +78,7 @@ export default function CategoriesGrid() {
 					fill={true}
 					sizes="50vw"
 				/>
-				<Link href={"http://localhost:3000/products?query=boots"}>
+				<Link href={"/products?query=boots"}>
 					<h1 className="text-[4vw] text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
 						BOOTS
 					</h1>
