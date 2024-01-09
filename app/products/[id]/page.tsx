@@ -19,7 +19,7 @@ export default async function Page({ params }: { params: { id: any } }) {
 			<div className=" flex justify-center lg:items-center">
 				<Image
 					className="h-[575px] w-[384px]"
-					src={item?.image}
+					src={image}
 					alt={""}
 					width={384}
 					height={575}
