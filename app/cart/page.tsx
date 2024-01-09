@@ -20,7 +20,7 @@ export default function Cart() {
 		image2: string;
 		name: string;
 		price: number;
-		quantity: string;
+		quantity: number;
 	};
 
 	useEffect(() => {
@@ -31,11 +31,11 @@ export default function Cart() {
 		id: number,
 		event: ChangeEvent<HTMLInputElement>
 	) {
-		const newQuantity = event.target.value;
+		const newQuantity = parseInt(event.target.value);
 		const updatedCartItems = cartItems.map((item) =>
 			item.id === id ? { ...item, quantity: newQuantity } : item
 		);
-		console.log(updatedCartItems);
+
 		setCartItems(updatedCartItems);
 		cookies.set("cart", updatedCartItems, { path: "/" });
 	}
