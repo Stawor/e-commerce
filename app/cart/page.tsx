@@ -10,18 +10,7 @@ import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined
 const cookies = new Cookies();
 export default function Cart() {
 	const { cart, removeFromCart } = useCart();
-	const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-	type CartItem = {
-		color: string;
-		gen: string;
-		id: number;
-		image: string;
-		image2: string;
-		name: string;
-		price: number;
-		quantity: number;
-	};
+	const [cartItems, setCartItems] = useState([]);
 
 	useEffect(() => {
 		setCartItems(cookies.get("cart"));
