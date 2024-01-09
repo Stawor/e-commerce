@@ -11,7 +11,7 @@ export default async function Page({ params }: { params: { id: any } }) {
 		},
 	});
 	if (!item) {
-		return <div>Loading...</div>;
+		return <div>Loading....</div>;
 	}
 	return (
 		<div className=" flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-48 mt-24">
