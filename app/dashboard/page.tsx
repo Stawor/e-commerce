@@ -7,22 +7,32 @@ export default async function page() {
 	async function items(formData: FormData | any) {
 		"use server";
 		const prisma = new PrismaClient();
-		const name: string = formData.get("name");
+		const name = formData.get("name");
 		const image = formData.get("image");
 		const image2 = formData.get("image2");
 		const price = formData.get("price");
 		const gen = formData.get("gen");
 		const color = formData.get("color");
 
+		type ItemData = {
+			name: string;
+			image: string;
+			price: number;
+			gen: string;
+			color: string;
+			image2: string;
+		};
+
+		const data: ItemData = {
+			name: name,
+			image: image,
+			price: parseFloat(price),
+			gen: gen,
+			color: color,
+			image2: image2!,
+		};
 		await prisma.item.create({
-			data: {
-				name: name,
-				image: image,
-				price: parseFloat(price),
-				gen: gen,
-				color: color,
-				image2: image2!,
-			},
+			data,
 		});
 	}
 	return (
