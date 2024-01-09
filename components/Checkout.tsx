@@ -5,18 +5,7 @@ const stripePromise = loadStripe(
 	process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
-type CartItem = {
-	color: string;
-	gen: string;
-	id: number;
-	image: string;
-	image2: string;
-	name: string;
-	price: number;
-	quantity: number;
-};
-
-export default function PreviewPage({ cartItems }: { cartItems: CartItem[] }) {
+export default function PreviewPage({ cartItems }) {
 	async function onCheckout() {
 		const response = await fetch("/api/checkout", {
 			method: "POST",
