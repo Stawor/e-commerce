@@ -7,7 +7,7 @@ export default async function page() {
 	async function items(formData: FormData | any) {
 		"use server";
 		const prisma = new PrismaClient();
-		const name = formData.get("name");
+		const name: string = formData.get("name");
 		const image = formData.get("image");
 		const image2 = formData.get("image2");
 		const price = formData.get("price");
@@ -18,10 +18,10 @@ export default async function page() {
 			data: {
 				name: name,
 				image: image,
-				image2: image2,
 				price: parseFloat(price),
 				gen: gen,
 				color: color,
+				image2: image2!,
 			},
 		});
 	}

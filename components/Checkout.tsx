@@ -15,7 +15,7 @@ type CartItem = {
 	image2: string;
 	name: string;
 	price: number;
-	quantity: string;
+	quantity: number;
 };
 
 export default function PreviewPage({ cartItems }: { cartItems: CartItem[] }) {
