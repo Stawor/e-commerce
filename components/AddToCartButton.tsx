@@ -5,9 +5,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import TaskAltIcon from "@mui/icons-material/TaskAlt";
 
 type CartItem = {
-	quantity: number;
+	color: string;
+	gen: string;
 	id: number;
+	image: string;
+	image2: string;
 	name: string;
+	price: number;
+	quantity: number;
 };
 
 export default function AddToCartButton({ item }: { item: CartItem }) {
