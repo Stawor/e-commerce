@@ -2,17 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-type CartItem = {
-	color: string;
-	gen: string;
-	id: number;
-	image: string;
-	image2: string;
-	name: string;
-	price: number;
-	quantity: number;
-};
-export default function Card({ item }: { item: CartItem }) {
+export default function Card({ item }) {
 	return (
 		<Link href={`/products/${item.id}`}>
 			<div>
