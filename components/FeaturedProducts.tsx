@@ -4,9 +4,20 @@ import Card from "./Card";
 
 export default async function FeaturedProducts() {
 	const prisma = new PrismaClient();
-	const items = await prisma.item.findMany({
+	const items: CartItem[] = await prisma.item.findMany({
 		take: 4,
 	});
+
+	type CartItem = {
+		color: string;
+		gen: string;
+		id: number;
+		image: string;
+		image2: string;
+		name: string;
+		price: number;
+		quantity: number;
+	};
 
 	return (
 		<main>
