@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useCart } from "../../context/ShoppingCartContext";
 import { Cookies } from "react-cookie";
 import Checkout from "@/components/Checkout";
@@ -9,23 +9,38 @@ import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined
 
 const cookies = new Cookies();
 export default function Cart() {
-	const { cart, addToCart, removeFromCart, updateQuantity } = useCart();
-	const [cartItems, setCartItems] = useState([]);
+	const { cart, removeFromCart } = useCart();
+	const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+	type CartItem = {
+		color: string;
+		gen: string;
+		id: number;
+		image: string;
+		image2: string;
+		name: string;
+		price: number;
+		quantity: string;
+	};
 
 	useEffect(() => {
 		setCartItems(cookies.get("cart"));
 	}, [cart]);
 
-	function handleQuantityChange(id, event) {
+	function handleQuantityChange(
+		id: number,
+		event: ChangeEvent<HTMLInputElement>
+	) {
 		const newQuantity = event.target.value;
 		const updatedCartItems = cartItems.map((item) =>
 			item.id === id ? { ...item, quantity: newQuantity } : item
 		);
+		console.log(updatedCartItems);
 		setCartItems(updatedCartItems);
 		cookies.set("cart", updatedCartItems, { path: "/" });
 	}
-
-	const handleRemoveFromCart = (id) => {
+	console.log(cartItems);
+	const handleRemoveFromCart = (id: number) => {
 		// Remove from cart state
 		removeFromCart(id);
 
@@ -38,13 +53,13 @@ export default function Cart() {
 	function PriceTotal() {
 		let totalPrice = 0;
 		cartItems.forEach((item) => {
-			totalPrice += item.price * item.quantity;
+			totalPrice += item.price * Number(item.quantity);
 		});
 		return <h1 className="text-4xl">Total: {totalPrice}$</h1>;
 	}
 
 	return (
-		<div className=" flex flex-col lg:flex-row gap-2 lg:justify-around m-16 ">
+		<div className=" flex flex-col lg:flex-row gap-6 lg:justify-around m-16 ">
 			<div className="flex flex-col items-center lg:w-2/3 gap-10 ">
 				{cartItems.length === 0 && (
 					<h1 className="text-3xl">Your Cart is empty</h1>
@@ -79,7 +94,7 @@ export default function Cart() {
 					</div>
 				))}
 			</div>
-			<div className="flex flex-col justify-around items-center lg:w-1/3 border-l px-2 h-[40vh]  bg-slate-200">
+			<div className="flex flex-col justify-around items-center lg:w-1/3  border-l px-2 h-[40vw]  bg-slate-200">
 				<PriceTotal />
 				<Checkout cartItems={cartItems} />
 			</div>

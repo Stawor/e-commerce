@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe/stripe";
 
 const corsHeaders = {
@@ -11,22 +11,36 @@ export function OPTIONS() {
 	return NextResponse.json({}, { headers: corsHeaders });
 }
 
-export async function POST(req, res) {
+export async function POST(req: NextRequest, res: NextResponse) {
 	const items = await req.json();
-	const line_items = [];
-	items.forEach((item) => {
-		line_items.push({
-			price_data: {
-				currency: "usd",
-				product_data: {
-					name: item.name,
-					images: [item.image],
+	const line_items: {
+		price_data: {
+			currency: string;
+			product_data: { name: any; images: any[] };
+			unit_amount: number;
+		};
+		quantity: any;
+	}[] = [];
+	items.forEach(
+		(item: {
+			name: string;
+			image: string;
+			price: number;
+			quantity: number;
+		}) => {
+			line_items.push({
+				price_data: {
+					currency: "usd",
+					product_data: {
+						name: item.name,
+						images: [item.image],
+					},
+					unit_amount: item.price * 100 * item.quantity,
 				},
-				unit_amount: item.price * 100 * item.quantity,
-			},
-			quantity: item.quantity,
-		});
-	});
+				quantity: item.quantity,
+			});
+		}
+	);
 	console.log(items);
 
 	// Create Checkout Sessions from body params.

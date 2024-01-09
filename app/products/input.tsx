@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
-export default function input() {
+export default function Input() {
 	const searchParams = useSearchParams();
 	const { replace } = useRouter();
 	const [isChecked, setIsChecked] = useState(false);
 	const pathname = usePathname();
 
-	function handleChange(name) {
+	function handleChange(name: string) {
 		const params = new URLSearchParams(searchParams);
 
 		if (!isChecked) {
@@ -21,7 +21,7 @@ export default function input() {
 		replace(`${pathname}?${params.toString()}`);
 	}
 
-	function handleSelect(value) {
+	function handleSelect(value: string) {
 		const params = new URLSearchParams(searchParams);
 		params.set("value", value);
 

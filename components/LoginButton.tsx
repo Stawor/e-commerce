@@ -23,7 +23,7 @@ export default function CamperVanPage() {
 					{userName}
 					<Image
 						className="rounded-full"
-						src={userImage}
+						src={userImage || ""}
 						width={30}
 						height={30}
 						alt={""}

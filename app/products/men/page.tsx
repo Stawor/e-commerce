@@ -6,9 +6,9 @@ import SortData from "@/components/SortData";
 export default async function MenProducts({
 	searchParams,
 }: {
-	searchParams?: {
-		query?: string;
-		value?: string;
+	searchParams: {
+		query: string;
+		value: string;
 	};
 }) {
 	const prisma = new PrismaClient();

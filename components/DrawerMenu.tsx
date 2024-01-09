@@ -4,6 +4,7 @@ import Drawer from "@mui/material/Drawer";
 import Link from "next/link";
 import LoginButton from "./LoginButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import CartIcon from "./CartIcon";
 
 type Anchor = "left";
 
@@ -28,14 +29,21 @@ export default function TemporaryDrawer() {
 
 	const list = (anchor: Anchor) => (
 		<Box
-			sx={{ width: 250 }}
+			sx={{
+				width: 250,
+				height: "100%",
+				backgroundColor: "#000",
+				color: "white",
+			}}
 			role="presentation"
 			onClick={toggleDrawer(anchor, false)}
 			onKeyDown={toggleDrawer(anchor, false)}
 		>
 			<div className="flex flex-col gap-8 m-4 text-3xl font-bold  ">
-				<div className="flex flex-col justify-start">
+				<div className="flex flex-col justify-start gap-2">
 					<LoginButton />
+
+					<CartIcon />
 				</div>
 				<hr className="border-slate-400" />
 				<div className="flex flex-col gap-8 underline">

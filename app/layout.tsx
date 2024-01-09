@@ -15,15 +15,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-	pageProps: session,
 }: {
 	children: React.ReactNode;
-	pageProps: any;
 }) {
 	return (
 		<html lang="en">
 			<body className={`${inter.className} `}>
-				<SessionProvider session={session}>
+				<SessionProvider>
 					<CartProvider>
 						<NavBar />
 						<div className=" flex flex-col gap-60 justify-between h-screen">

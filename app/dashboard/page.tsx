@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 export default async function page() {
 	"use server";
 
-	async function items(formData) {
+	async function items(formData: FormData | any) {
 		"use server";
 		const prisma = new PrismaClient();
 		const name = formData.get("name");
@@ -14,7 +14,7 @@ export default async function page() {
 		const gen = formData.get("gen");
 		const color = formData.get("color");
 
-		const sendIstems = await prisma.item.create({
+		await prisma.item.create({
 			data: {
 				name: name,
 				image: image,

@@ -9,13 +9,13 @@ import {
 
 export default function Products() {
 	const params = useParams();
-	const [price, setPrice] = useState(null);
+	const [price, setPrice] = useState("");
 	const searchParams = useSearchParams();
 	const { replace } = useRouter();
 
 	const pathname = usePathname();
 
-	function handleChange(name) {
+	function handleChange(name: string) {
 		const params = new URLSearchParams(searchParams);
 		if (name === "all") {
 			replace(`${pathname}`);
@@ -26,7 +26,7 @@ export default function Products() {
 		}
 	}
 
-	function handleSelect(value) {
+	function handleSelect(value: string) {
 		const params = new URLSearchParams(searchParams);
 		params.set("value", value);
 		setPrice(value);
@@ -41,7 +41,7 @@ export default function Products() {
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
 							id="all"
-							onClick={(e) => {
+							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}
 						>
@@ -50,7 +50,7 @@ export default function Products() {
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
 							id="shirt"
-							onClick={(e) => {
+							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}
 						>
@@ -59,7 +59,7 @@ export default function Products() {
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
 							id="t-shirt"
-							onClick={(e) => {
+							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}
 						>
@@ -68,7 +68,7 @@ export default function Products() {
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
 							id="trausers"
-							onClick={(e) => {
+							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}
 						>
@@ -77,7 +77,7 @@ export default function Products() {
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
 							id="boots"
-							onClick={(e) => {
+							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}
 						>
