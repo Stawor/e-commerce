@@ -14,19 +14,10 @@ export default async function page() {
 		const gen = formData.get("gen");
 		const color = formData.get("color");
 
-		type ItemData = {
-			name: string;
-			image: string;
-			price: number;
-			gen: string;
-			color: string;
-			image2: string;
-		};
-
-		const data: ItemData = {
+		const data = {
 			name: name,
 			image: image,
-			price: parseFloat(price),
+			price: parseFloat(price)!,
 			gen: gen,
 			color: color,
 			image2: image2!,
