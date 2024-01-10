@@ -67,7 +67,7 @@ export default function Products() {
 						</p>
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
-							id="trausers"
+							id="trousers"
 							onClick={(e: React.MouseEvent<HTMLFormElement> | any) => {
 								handleChange(e.target.id);
 							}}

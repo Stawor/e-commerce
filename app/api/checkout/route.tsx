@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "@/stripe";
+import { stripe } from "@/stripe/stripe";
 
 const corsHeaders = {
 	"Access-Control-Allow-Origin": "*",
@@ -41,7 +41,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
 			});
 		}
 	);
-	console.log(items);
 
 	// Create Checkout Sessions from body params.
 	const origin = req.headers.get("origin");
