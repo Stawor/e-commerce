@@ -3,23 +3,26 @@ import React, { use, useEffect, useState } from "react";
 import { useCart } from "@/context/ShoppingCartContext";
 import Link from "next/link";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { Cookies } from "react-cookie";
 
 export default function CartIcon() {
-	const cookies = new Cookies();
-	const { cart } = useCart();
-	const [cookie, setCookie] = useState([]);
+	const { cookie } = useCart();
 
-	useEffect(() => {
-		setCookie(cookies.get("cart"));
-	}, [cart]);
-
+	if (cookie == undefined) {
+		return (
+			<div className=" flex items-center">
+				<Link href="/cart">
+					<ShoppingCartOutlinedIcon />
+				</Link>
+				<span>0</span>
+			</div>
+		);
+	}
 	return (
 		<div className=" flex items-center">
 			<Link href="/cart">
 				<ShoppingCartOutlinedIcon />
 			</Link>
-			<span>{cart.length === 0 ? cookie.length : cart.length}</span>
+			<span>{cookie.length}</span>
 		</div>
 	);
 }

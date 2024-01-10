@@ -15,6 +15,7 @@ type CartItem = {
 
 type CartContextType = {
 	cart: CartItem[];
+	cookie: CartItem[];
 	message: string;
 	display: string;
 	addToCart: (item: CartItem) => void;
@@ -34,8 +35,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 	const [display, setDisplay] = useState<string>("hidden");
 
 	useEffect(() => {
-		cookies.set("cart", JSON.stringify(cart), { path: "/" });
-
 		if (getCookie == undefined || cart.length !== 0) {
 			cookies.set("cart", JSON.stringify(cart), { path: "/" });
 		}
@@ -81,6 +80,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 				message,
 				display,
 				setDisplay,
+				cookie,
 			}}
 		>
 			{children}
