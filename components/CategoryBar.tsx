@@ -72,7 +72,7 @@ export default function Products() {
 								handleChange(e.target.id);
 							}}
 						>
-							Trausers
+							Trousers
 						</p>
 						<p
 							className="cursor-pointer hover:text-slate-500 hover:underline"
