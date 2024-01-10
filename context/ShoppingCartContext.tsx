@@ -34,6 +34,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 	const [display, setDisplay] = useState<string>("hidden");
 
 	useEffect(() => {
+		cookies.set("cart", JSON.stringify(cart), { path: "/" });
+
 		if (getCookie == undefined || cart.length !== 0) {
 			cookies.set("cart", JSON.stringify(cart), { path: "/" });
 		}
