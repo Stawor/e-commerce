@@ -59,6 +59,7 @@ export default function Cart() {
 		});
 		return <h1 className="text-4xl">Total: {totalPrice}$</h1>;
 	}
+	if (!cartItems) return <div>Loading...</div>;
 
 	return (
 		<div className=" flex flex-col lg:flex-row gap-6 lg:justify-around m-16 ">
